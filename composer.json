@@ -53,6 +53,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "phpstan": [
+            "vendor/bin/phpstan analyse --configuration=phpstan.neon src/ --level max"
         ]
     },
     "conflict": {

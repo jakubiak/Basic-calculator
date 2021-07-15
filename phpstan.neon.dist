@@ -1,0 +1,78 @@
+includes:
+    - %currentWorkingDirectory%/vendor/phpstan/phpstan/conf/bleedingEdge.neon
+parameters:
+    checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
+
+    customRulesetUsed: true
+rules:
+	- PHPStan\Rules\DeadCode\NoopRule
+	- PHPStan\Rules\DeadCode\UnreachableStatementRule
+	- PHPStan\Rules\Methods\CallToConstructorStatementWithoutSideEffectsRule
+	- PHPStan\Rules\Methods\CallToMethodStamentWithoutSideEffectsRule
+	- PHPStan\Rules\Methods\CallToStaticMethodStamentWithoutSideEffectsRule
+	- PHPStan\Rules\Methods\NullsafeMethodCallRule
+services:
+	-
+		class: PHPStan\Rules\Classes\ImpossibleInstanceOfRule
+		arguments:
+			checkAlwaysTrueInstanceof: %checkAlwaysTrueInstanceof%
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: PHPStan\Rules\DeadCode\UnusedPrivateConstantRule
+
+	-
+		class: PHPStan\Rules\DeadCode\UnusedPrivateMethodRule
+
+	-
+		class: PHPStan\Rules\DeadCode\UnusedPrivatePropertyRule
+		arguments:
+			alwaysWrittenTags: %propertyAlwaysWrittenTags%
+			alwaysReadTags: %propertyAlwaysReadTags%
+			checkUninitializedProperties: %checkUninitializedProperties%
+
+	-
+		class: PHPStan\Rules\Comparison\ElseIfConstantConditionRule
+		arguments:
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: PHPStan\Rules\Comparison\ImpossibleCheckTypeFunctionCallRule
+		arguments:
+			checkAlwaysTrueCheckTypeFunctionCall: %checkAlwaysTrueCheckTypeFunctionCall%
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: PHPStan\Rules\Comparison\ImpossibleCheckTypeMethodCallRule
+		arguments:
+			checkAlwaysTrueCheckTypeFunctionCall: %checkAlwaysTrueCheckTypeFunctionCall%
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: PHPStan\Rules\Comparison\TernaryOperatorConstantConditionRule
+		arguments:
+			treatPhpDocTypesAsCertain: %treatPhpDocTypesAsCertain%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: PHPStan\Rules\TooWideTypehints\TooWideMethodReturnTypehintRule
+		arguments:
+			checkProtectedAndPublicMethods: %checkTooWideReturnTypesInProtectedAndPublicMethods%
+		tags:
+			- phpstan.rules.rule
+
+	-
+		class: PHPStan\Rules\Variables\IssetRule
+
+	-
+		class: PHPStan\Rules\Variables\NullCoalesceRule

@@ -7,4 +7,5 @@
 /public/bundles/
 /var/
 /vendor/
+phpstan.neon
 ###< symfony/framework-bundle ###
