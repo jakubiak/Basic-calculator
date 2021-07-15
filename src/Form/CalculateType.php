@@ -56,7 +56,7 @@ final class CalculateType extends AbstractType
         if ($formData->getOperation() !== 'division') {
             return;
         }
-        if ($formData->getSecond() === 0.0) {
+        if ($formData->getSecond() !== 0.0) {
             return;
         }
 
