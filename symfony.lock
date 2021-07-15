@@ -1,6 +1,24 @@
 {
+    "doctrine/annotations": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
+        },
+        "files": [
+            "./config/routes/annotations.yaml"
+        ]
+    },
+    "doctrine/lexer": {
+        "version": "1.2.1"
+    },
     "php": {
         "version": "7.3"
+    },
+    "phpstan/phpstan": {
+        "version": "0.12.92"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -13,6 +31,9 @@
     },
     "psr/log": {
         "version": "1.1.4"
+    },
+    "roave/security-advisories": {
+        "version": "dev-latest"
     },
     "symfony/cache": {
         "version": "v5.3.3"
@@ -171,6 +192,19 @@
         "files": [
             "./config/packages/twig.yaml",
             "./templates/base.html.twig"
+        ]
+    },
+    "symfony/validator": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "3eb8df139ec05414489d55b97603c5f6ca0c44cb"
+        },
+        "files": [
+            "./config/packages/test/validator.yaml",
+            "./config/packages/validator.yaml"
         ]
     },
     "symfony/var-dumper": {

@@ -11,7 +11,10 @@
 {% block body %}
     {{ form(form) }}
 
-    <p>
-        RESULT = {{ result }}
-    </p>
+    {% if result is not empty %}
+        <p>
+            RESULT = <strong>{{ result }}</strong>
+        </p>
+    {% endif %}
+
 {% endblock %}
