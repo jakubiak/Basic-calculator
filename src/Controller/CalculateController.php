@@ -24,6 +24,7 @@ class CalculateController extends AbstractController
         $calculateForm = $this->createForm(CalculateType::class, $calculate);
 
         $calculateForm->handleRequest($request);
+
         if ($calculateForm->isSubmitted() && $calculateForm->isValid()) {
             $calculate = $calculateForm->getData();
             $strategy = $this->calculateStrategyFactory->create($calculate->getOperation());

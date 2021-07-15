@@ -41,5 +41,4 @@ final class Calculate
         $this->operation = $operation;
     }
 
-
 }
